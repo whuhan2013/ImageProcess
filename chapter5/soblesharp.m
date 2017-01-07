@@ -1,0 +1,15 @@
+I = imread('bacteria.BMP');
+w1 = fspecial('sobel');
+w2 = w1';
+G1 = imfilter(I,w1);
+G2 = imfilter(I,w2);
+G = abs(G1)+abs(G2);
+figure;
+subplot(2,2,1);
+imshow(I),title('原图像');
+subplot(2,2,2);
+imshow(G1,[]),title('水平sobel');  
+subplot(2,2,3);
+imshow(G2,[]),title('竖直sobel');
+subplot(2,2,4);
+imshow(G,[]),title('sobel');

@@ -1,0 +1,18 @@
+I = imread('bacteria.BMP');
+temp = I;
+I = double(I);
+w1 = [0 -1 0;-1 4 -1;0 -1 0];
+L1 = imfilter(I,w1,'corr','replicate');
+w2 = [-1 -1 -1;-1 8 -1 ;-1 -1 -1];
+L2 = imfilter(I,w2,'corr','replicate');
+w3 = [1 4 1;4 -20 4;1 4 1];
+L3 = imfilter(I,w3,'corr','replicate');
+figure;
+subplot(2,2,1);
+imshow(temp),title('Ô­Í¼Ïñ');
+subplot(2,2,2);
+imshow(abs(L1),[]);
+subplot(2,2,3);
+imshow(abs(L2),[]);
+subplot(2,2,4);
+imshow(abs(L3),[]);
